@@ -9,6 +9,18 @@
           <input matInput placeholder="Car Name" [(ngModel)]="car.name"
                  required name="name" #name>
         </mat-form-field>
+        <br>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Choose an option</mat-label>
+          <select matNativeControl name="ownerDni" [(ngModel)]="car.ownerDni" #ownerDni>
+            <option *ngFor="let owner of owners" value="{{owner.dni}}">{{ owner.name }}</option>
+          </select>
+        </mat-form-field>
+
+        
+
+        
       </mat-card-content>
       <mat-card-actions>
         <button mat-raised-button color="primary" type="submit"

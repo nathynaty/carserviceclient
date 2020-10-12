@@ -1,27 +1,13 @@
-# CarServiceClient
+OK 1- crear propietarios: 
+OK 2- editar propietarios
+OK 3- traer uno o varios los propietarios
+OK 4- eliminar uno
+4.1 - varios propietarios
+5- asociar con cars modificando el componente edit-cars para permitir agregar el propietario
+OK 6- diseño con material design
+OK 7- componente que muestre la lista de carros con sus propietarios (los carros deben tener su imagen)
+8- componente que permita ver la lista de propietarios
+9- tener un componente que permita crear o actualizar los propietarios
+10- al eliminarse el propietario se debe eliminar la relacion que tenga con los carros
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.2.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Se creo el servicio owner en la carpeta shared que tiene los metodos que consumen el api de la url de owners, asi mismo se creó el componente home donde se agregaron 2 botones: uno para car list y el otro para owner list, se crearon tambien los componentes get-owner que muestra la lista de los owners, el componente edit-owner que permite crear y para editar en la url de cada car se usó un pipe nativo de angular el cual nos permitia realizar un split para "/" sobre la propiedad _links.self.href la cual al final poseia el id de este elemento, entonces con el split se dividó esa url y se tomó la porción 4 que era la que tenia este id, cada componente con sus ajustes e importaciones de service y del archivo .ts de cada componente tambien se modifico home como la pagina principal, tambien se creo el path de cada componente, se creo tambien la relacion entre el dni del owner y el ownerdni de car donde se agrego un select en car-edit.html y se agrego una funcion que consumia todos los owners y de alli se alimento el select el cual el valor a mostrar era el nombre (owner.name) y el valor de este es el dni (owner.dni) teniendo en cuenta que en car-edit.ts la importacion de OwnerService y se le asigno un name al campo select para que el ngform pudiera detectar como uno de los campos a leer y guardar.
